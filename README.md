@@ -1,5 +1,5 @@
 
-<img src="https://github.com/user-attachments/assets/9c94f96e-9021-4736-a534-0ab66389a119" width="300%"> 
+<img src="https://github.com/user-attachments/assets/9c94f96e-9021-4736-a534-0ab66389a119" width="30%"> 
 
 https://peter.quantr.hk/2025/07/waveshare-esp32-c6-1-47-touch-micropython-lvgl/
 
@@ -11,8 +11,8 @@ https://peter.quantr.hk/2025/07/waveshare-esp32-c6-1-47-touch-micropython-lvgl/
 pip install adafruit-ampy
 pip install esptool 
 
-ampy --port /dev/ttyUSB0 put main.py
-ampy --port /dev/ttyUSB0 ls
+ampy --port /dev/cu.usbmodem11101 put main.py
+ampy --port /dev/cu.usbmodem11101 ls
 ```
 
 마이크로파이썬 + lvgl 빌드 -> bin 만들기
