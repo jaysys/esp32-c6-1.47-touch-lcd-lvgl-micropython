@@ -35,7 +35,7 @@ _TOUCH_CS = 21
 _OFFSET_X = 34
 _OFFSET_Y = 0
 
-print('s1');
+print('s1 spi bus init...');
 spi_bus = machine.SPI.Bus(
     host=_HOST,
     mosi=_MOSI,
@@ -43,7 +43,7 @@ spi_bus = machine.SPI.Bus(
     sck=_SCK
 )
 
-print('s2');
+print('s2 lcd spi bus init...');
 display_bus = lcd_bus.SPIBus(
     spi_bus=spi_bus,
     freq=_LCD_FREQ,
@@ -51,7 +51,7 @@ display_bus = lcd_bus.SPIBus(
     cs=_LCD_CS,
 )
 
-print('s3');
+print('s3 jd9853 init...');
 display = jd9853.JD9853(
     data_bus=display_bus,
     display_width=_WIDTH,
@@ -67,22 +67,21 @@ display = jd9853.JD9853(
     offset_y=_OFFSET_Y
 )
 
-print('s4');
-
+print('s4 jd9853 init...');
 display.set_power(True)
 display.init()
 display.set_color_inversion(True)
 display.set_backlight(100)
 
 # Initialize touch controller
-print('Initializing touch controller...')
+print('s5 touch controller init...')
 i2c_bus = I2C.Bus(host=0, sda=18, scl=19)
 touch_i2c = I2C.Device(i2c_bus, axs5106.I2C_ADDR, axs5106.BITS)
 indev = axs5106.AXS5106(
     touch_i2c,
     debug=True,
     reset_pin=20,
-    startup_rotation=lv.DISPLAY_ROTATION._270
+    # startup_rotation=lv.DISPLAY_ROTATION._270
 )
 
 scrn = lv.screen_active()
