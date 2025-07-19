@@ -1,7 +1,6 @@
 main.py
 
 - touch, lvgl display, animation 을 모두 수행하는 샘플 코드 추가함
-- 
 - plotting touch points on the screen
 
 
