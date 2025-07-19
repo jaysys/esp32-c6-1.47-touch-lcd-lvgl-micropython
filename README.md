@@ -26,7 +26,7 @@ cd lvgl_micropython
 python3 make.py esp32 clean --flash-size=4 BOARD=ESP32_GENERIC_C6 DISPLAY=jd9853 INDEV=axs5106
 ```
 
-빌드한 바이너리 파일 esp32c6에 플래싱!
+빌드한 바이너리 파일 lvgl_micropy_ESP32_GENERIC_C6-4.bin -> esp32c6에 플래싱!
 
 ```
 esptool.py --chip esp32c6 -b 460800 --before default_reset --after hard_reset write_flash --flash_mode dio --flash_size 4MB --flash_freq 40m --erase-all 0x0 build/lvgl_micropy_ESP32_GENERIC_C6-4.bin
